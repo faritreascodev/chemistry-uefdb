@@ -1,0 +1,53 @@
+body {
+    
+    padding-top: 56px; /* Altura de la barra de navegación */
+  }
+  .jumbotron {
+    background-size: cover;
+    color: 000000;
+    text-shadow: 2px 2px 4px #fff;
+  }
+  .cta-btn {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 25px;
+  }
+
+  
+  .navbar {
+    background-color: #343a40; /* Color de fondo de la barra de navegación */
+    }
+    .navbar-brand {
+    font-size: 1.5rem;
+    }
+    .navbar-toggler {
+    border-color: #28a745; /* Color del botón del menú desplegable */
+    }
+    .navbar-toggler-icon {
+    background-color: #28a745; /* Color del icono del botón del menú desplegable */
+    }
+    .navbar-nav .nav-item .nav-link {
+    color: white;
+    font-weight: bold;
+    }
+    .navbar-nav .nav-item.active .nav-link {
+    color: #28a745; /* Color del enlace activo */
+    }
+    .navbar-nav .nav-link:hover {
+    color: #28a745; /* Color al pasar el ratón sobre el enlace */
+    }
+    .flashcard {
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        margin-bottom: 1rem;
+    }
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balanceador de Ecuaciones | Quimica</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="info.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .header-section {
+            position: relative;
+            background: url('https://previews.123rf.com/images/nsit0108/nsit01081811/nsit0108181100405/111135495-banner-de-herramientas-de-qu%C3%ADmica-ilustraci%C3%B3n-de-esquema-de-banner-de-herramientas-de-qu%C3%ADmica-para.jpg') center/cover no-repeat;
+            text-align: center;
+            padding: 100px 0;
+            color: #28a745;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            /* Esta línea permite eventos a través de la superposición */
+        }
+
+        .container {
+            background-color: white;
+        }
+
+        .header-text {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .header-btn {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            margin-top: 20px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: fadeInUp 1s 0.5s ease-out;
+        }
+
+        .features-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .feature {
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .feature:hover {
+            transform: scale(1.1);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #28a745;
+            animation: zoomIn 1s ease-out;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        .info-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .info-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #28a745;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .info-content {
+            font-size: 1.2rem;
+            color: #6c757d;
+            animation: fadeInUp 1s 0.5s ease-out;
+        }
+
+        .info-img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 30px;
+            animation: fadeIn 1s 1s ease-out;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .contact-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #28a745;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s 0.5s ease-out;
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+        }
+
+        .form-btn {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-btn:hover {
+            background-color: #218838;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            cursor: pointer;
+            color: #28a745;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .section-content {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+
+        .popup-content {
+            text-align: justify;
+        }
+
+        /* Estilos de los Modales */
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+        }
+
+        /* Cambia el color de fondo del modal */
+        .modal-body {
+            background-color: #f8f9fa;
+        }
+
+        /* Estilos de Cierre del Modal */
+        .close {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #28a745;
+            opacity: 0.7;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .close:hover {
+            color: #218838;
+            opacity: 1;
+        }
+
+        .popup-content {
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <!-- Contenido de la página -->
+    <div class="container">
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="#">Balanceador Químico</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teoría.html">Teoría</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="simuladores.html">Simuladores</a>
+                    </li>
+                    <!-- Agrega más secciones según sea necesario -->
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Header -->
+    <section class="header-section" data-aos="fade-up">
+        <div class="container">
+            <h1 class="header-text">Bienvenido al Balanceador Químico</h1>
+            <p class="lead">Equilibra tus ecuaciones químicas de manera fácil y rápida.</p>
+        </div>
+        <a href="https://youtu.be/wl_HCBxpBs0?si=jPPyEbVYjuBwAtf1" class="header-btn btn btn-lg">Descubre más</a>
+        <div class="overlay"></div>
+    </section>
+    <!-- Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 feature" data-aos="fade-up">
+                    <i class="fas fa-flask feature-icon hvr-grow"></i>
+                    <h2 class="feature-title">Balanceo Automático</h2>
+                    <p class="feature-description">Nuestro balanceador realiza ajustes automáticamente para cumplir con
+                        la conservación de la masa.</p>
+                </div>
+                <div class="col-lg-4 feature" data-aos="fade-up">
+                    <i class="fas fa-book feature-icon hvr-grow"></i>
+                    <h2 class="feature-title">Teoría Fundamentada</h2>
+                    <p class="feature-description">Accede a secciones educativas para entender mejor los principios del
+                        balanceo de ecuaciones.</p>
+                </div>
+                <div class="col-lg-4 feature" data-aos="fade-up">
+                    <i class="fas fa-cogs feature-icon hvr-grow"></i>
+                    <h2 class="feature-title">Simuladores Interactivos</h2>
+                    <p class="feature-description">Utiliza nuestras herramientas interactivas para simular y aprender
+                        sobre diversas reacciones químicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="info-section">
+        <div class="container">
+            <h2 class="info-heading">Descubre más sobre el Balanceador Químico</h2>
+            <p class="info-content">El Balanceador Químico es una herramienta poderosa diseñada para simplificar el
+                proceso de balanceo de ecuaciones químicas. Descubre cómo esta herramienta puede ayudarte a comprender y
+                aplicar conceptos fundamentales en química de manera práctica y eficiente.</p>
+            <img src="BEQ.png" alt="Información" class="info-img">
+        </div>
+    </section>
+    <section class="theory-section">
+        <div class="container">
+            <h2 class="section-heading" data-toggle="modal" data-target="#theoryModal">Sección de Teoría</h2>
+            <!-- Modal -->
+            <div class="modal fade" id="theoryModal" tabindex="-1" role="dialog" aria-labelledby="theoryModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="theoryModalLabel">Sección de Teoría</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="popup-content">
+                                <p>En esta sección, proporcionamos información fundamental sobre el balanceo de
+                                    ecuaciones químicas. Exploramos los conceptos clave, reglas y principios detrás del
+                                    balanceo para ayudar a los usuarios a comprender la importancia y la aplicación
+                                    práctica de este proceso en la química. Utilizamos recursos educativos como textos
+                                    explicativos, gráficos ilustrativos y videos didácticos para facilitar el
+                                    aprendizaje.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Recursos Didácticos Section -->
+    <section class="resources-section">
+        <div class="container">
+            <h2 class="section-heading" data-toggle="modal" data-target="#resourcesModal">Sección de Recursos Didácticos
+            </h2>
+            <!-- Modal -->
+            <div class="modal fade" id="resourcesModal" tabindex="-1" role="dialog"
+                aria-labelledby="resourcesModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="resourcesModalLabel">Sección de Recursos Didácticos</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="popup-content">
+                                <p>Aquí, los usuarios tienen acceso a una variedad de recursos didácticos diseñados para
+                                    reforzar el conocimiento adquirido en la sección de teoría. Ofrecemos ejercicios
+                                    prácticos, ejemplos resueltos y problemas desafiantes que permiten a los estudiantes
+                                    aplicar sus habilidades de balanceo de ecuaciones. Además, proporcionamos enlaces a
+                                    libros recomendados y otras fuentes educativas para aquellos que deseen profundizar
+                                    aún más en el tema.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Simuladores Section -->
+    <section class="simulators-section">
+        <div class="container">
+            <h2 class="section-heading" data-toggle="modal" data-target="#simulatorsModal">Sección de Simuladores</h2>
+            <!-- Modal -->
+            <div class="modal fade" id="simulatorsModal" tabindex="-1" role="dialog"
+                aria-labelledby="simulatorsModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="simulatorsModalLabel">Sección de Simuladores</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="popup-content">
+                                <p>La sección de simuladores ofrece una experiencia interactiva donde los usuarios
+                                    pueden aplicar sus conocimientos en situaciones prácticas. Utilizamos herramientas
+                                    interactivas y simuladores que permiten a los estudiantes realizar experimentos
+                                    virtuales, modificar reacciones químicas y observar los resultados en tiempo real.
+                                    Estos simuladores proporcionan una plataforma de aprendizaje práctica y
+                                    experimental.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contacto Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="contact-heading">¡Contáctanos!</h2>
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="emailInput" placeholder="Correo Electrónico" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="messageInput" rows="4" placeholder="Mensaje" required></textarea>
+                </div>
+                <button type="submit" class="form-btn btn btn-lg">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
+
+            // Obtener los valores del formulario
+            const name = document.getElementById('nameInput').value;
+            const email = document.getElementById('emailInput').value;
+            const message = document.getElementById('messageInput').value;
+
+            // Mostrar los valores en la consola
+            console.log('Nombre:', name);
+            console.log('Correo Electrónico:', email);
+            console.log('Mensaje:', message);
+        }
+    </script>
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <p>Desarrollado por Farit Reasco &copy; 2024</p>
+    </footer>
+    <!-- Scripts de Bootstrap, AOS y FontAwesome -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
